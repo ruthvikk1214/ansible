@@ -1,10 +1,10 @@
 - name: Install nginx
   hosts: all
   become: yes
-
+ 
   tasks: 
   - name: Nginx Installation 
     ansible.builtin.package:
       name: nginx
-      state: present
+      state: absent
       
