@@ -12,3 +12,9 @@
       name: nginx
       state: started
       enabled: yes
+  - name: Mysql Installation
+    name: mysql
+    state: present
+  - name: Mysql service 
+    state: started
+    enabled: yes
