@@ -12,12 +12,12 @@
       name: nginx
       state: started
       enabled: yes
-  - name: Mysql Installation
+  - name: mysql Installation
     ansible.builtin.package:
-      name: mysqld
+      name: mysql
       state: present
   - name: Mysql service 
     ansible.builtin.service:
-      name: mysqld
+      name: mysql
       state: started
       enabled: yes
