@@ -1,11 +1,8 @@
 - name: play level variables
   hosts: local
   connection: local 
-  vars:
-    Name: "Ruthvik"
-    Age: "24"
-    Weight: "80"
-
+  vars_files:
+  - variables2.yaml
   tasks:
   - name: print variables
     ansible.builtin.debug:
