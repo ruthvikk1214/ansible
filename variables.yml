@@ -8,5 +8,4 @@
 
   tasks: print variables
   ansible.builtin.debug:
-
   msg: " Hello, my name is{{Name}}, age is {{Age}} and i weigh {{Weight}} kilos"
