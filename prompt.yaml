@@ -9,6 +9,7 @@
     - name: password
       prompt: What is your password?
 
-  tasks: print  the variables
-  ansible.builtin.debug:
-    msg: " Hello {{ username}} your password is {{password}}"
+  tasks: 
+  - name: print  the variables
+    ansible.builtin.debug:
+      msg: " Hello {{ username}} your password is {{password}}"
