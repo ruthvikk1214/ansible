@@ -6,6 +6,7 @@
     Age: "24"
     Weight: "80"
 
-  tasks: print variables
-  ansible.builtin.debug:
-  msg: " Hello, my name is{{Name}}, age is {{Age}} and i weigh {{Weight}} kilos"
+  tasks:
+  - name: print variables
+    ansible.builtin.debug:
+    msg: " Hello, my name is{{Name}}, age is {{Age}} and i weigh {{Weight}} kilos"
