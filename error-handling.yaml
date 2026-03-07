@@ -14,3 +14,7 @@
   - name: create the user if not present
     ansible.builtin.command: useradd roboshop 
     when: user_output.rc !=0
+
+  - name: check if user is present or not
+    ansible.builtin.command: id roboshop  
+    register: user_output2  
