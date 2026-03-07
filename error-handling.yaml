@@ -18,3 +18,7 @@
   - name: check if user is present or not
     ansible.builtin.command: id roboshop  
     register: user_output2  
+
+  - name: print the user output 
+    ansible.builtin.debug:
+      msg: "{{ user_output2 }}"  
