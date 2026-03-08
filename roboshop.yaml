@@ -1,0 +1,32 @@
+---
+- name: Create EC2 instances
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  tasks:
+
+    - name: Launch EC2 instances
+      amazon.aws.ec2_instance:
+        name: "{{ item }}"
+        instance_type: t2.micro
+        image_id: ami-0220d79f3f480ecf5
+        security_group: sg-0eec592803ede7730
+        region: ap-south-1
+        wait: yes
+        network:
+          assign_public_ip: true
+      loop: "{{ instance_names }}"
+      register: ec2_output
+
+    - name: Show Public IP for frontend
+      ansible.builtin.debug:
+        msg: "Frontend Public IP: {{ item.instances[0].public_ip_address }}"
+      when: item.item == "frontend"
+      loop: "{{ ec2_output.results }}"
+
+    - name: Show Private IP for other instances
+      ansible.builtin.debug:
+        msg: "Private IP: {{ item.instances[0].private_ip_address }}"
+      when: item.item != "frontend"
+      loop: "{{ ec2_output.results }}"
